@@ -1,4 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import emptyСontent from './index'
 
 const BASE_URL = 'https://restcountries.com/v3.1';
 
@@ -19,13 +20,12 @@ export default class CountriesApiService {
 
                 return data
             })
-            .catch(error => {
-                console.log(error)
-            });
+            .catch(console.log);
     }
 
     onResponse(response) {
         if (response.status === 404) {
+            emptyСontent()
             Notify.failure("Oops, there is no country with that name");
             throw new Error("Not found")
         }
