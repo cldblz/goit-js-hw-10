@@ -11,6 +11,8 @@ const countriesApiService = new CountriesApiService()
 input.addEventListener("input", debounce(onInput, 300))
 
 function onInput(e) {
+    emptyСontent()
+
     const newQuery = input.value.trim()
 
     if (newQuery === "") {
@@ -23,8 +25,6 @@ function onInput(e) {
 
 function createMarkup(data) {
     if (data) {
-        emptyСontent()
-
         if (data.length === 1) {
             const { flags, name, capital, population, languages } = data[0]
             const languagesList = Object.values(languages).join(", ")
@@ -42,7 +42,7 @@ function createMarkup(data) {
     }
 }
 
-function emptyСontent() {
+export default function emptyСontent() {
     countryListRef.innerHTML = ""
     countryInfoRef.innerHTML = ""
 }
