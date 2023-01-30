@@ -8,7 +8,7 @@ const countryListRef = document.querySelector(".country-list")
 const countryInfoRef = document.querySelector(".country-info")
 const countriesApiService = new CountriesApiService()
 
-input.addEventListener("input", debounce(onInput, 300))
+input.addEventListener("input", debounce(onInput, DEBOUNCE_DELAY))
 
 function onInput(e) {
     emptyСontent()
